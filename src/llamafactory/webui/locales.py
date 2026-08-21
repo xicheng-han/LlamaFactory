@@ -930,6 +930,28 @@ LOCALES = {
             "info": "最後のターンのみを学習する（SFT のみ）。",
         },
     },
+    "check_template_consistency": {
+        "en": {
+            "label": "Consistency check",
+            "info": "Check before training.",
+        },
+        "ru": {
+            "label": "Проверка согласованности",
+            "info": "Проверить перед обучением.",
+        },
+        "zh": {
+            "label": "训推一致性检查",
+            "info": "训练前检查。",
+        },
+        "ko": {
+            "label": "일관성 검사",
+            "info": "학습 전에 검사합니다.",
+        },
+        "ja": {
+            "label": "整合性チェック",
+            "info": "学習前にチェックします。",
+        },
+    },
     "resize_vocab": {
         "en": {
             "label": "Resize token embeddings",

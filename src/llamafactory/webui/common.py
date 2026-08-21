@@ -170,6 +170,7 @@ def _clean_cmd(args: dict[str, Any]) -> dict[str, Any]:
     r"""Remove args with NoneType or False or empty string value."""
     no_skip_keys = [
         "packing",
+        "check_template_consistency",
         "enable_thinking",
         "use_reentrant_gc",
         "double_quantization",

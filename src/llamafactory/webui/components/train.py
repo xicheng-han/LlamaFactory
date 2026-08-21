@@ -43,10 +43,19 @@ def create_train_tab(engine: "Engine") -> dict[str, "Component"]:
         training_stage = gr.Dropdown(choices=stages, value=stages[0], scale=1)
         dataset_dir = gr.Textbox(value=DEFAULT_DATA_DIR, scale=1)
         dataset = gr.Dropdown(multiselect=True, allow_custom_value=True, scale=4)
+        check_template_consistency = gr.Checkbox(value=True, scale=1)
         preview_elems = create_preview_box(dataset_dir, dataset)
 
-    input_elems.update({training_stage, dataset_dir, dataset})
-    elem_dict.update(dict(training_stage=training_stage, dataset_dir=dataset_dir, dataset=dataset, **preview_elems))
+    input_elems.update({training_stage, dataset_dir, dataset, check_template_consistency})
+    elem_dict.update(
+        dict(
+            training_stage=training_stage,
+            dataset_dir=dataset_dir,
+            dataset=dataset,
+            check_template_consistency=check_template_consistency,
+            **preview_elems,
+        )
+    )
 
     with gr.Row():
         learning_rate = gr.Textbox(value="5e-5")

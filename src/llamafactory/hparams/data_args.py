@@ -55,6 +55,10 @@ class DataArguments:
         default=False,
         metadata={"help": "Whether or not to mask the history and train on the last turn only."},
     )
+    check_template_consistency: bool = field(
+        default=True,
+        metadata={"help": "Whether or not to check train-inference template consistency before training."},
+    )
     streaming: bool = field(
         default=False,
         metadata={"help": "Enable dataset streaming."},

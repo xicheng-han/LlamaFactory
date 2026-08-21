@@ -46,6 +46,7 @@ from .ppo import run_ppo
 from .pt import run_pt
 from .rm import run_rm
 from .sft import run_sft
+from .template_consistency import run_template_consistency_check
 from .trainer_utils import (
     get_placement_group,
     get_ray_head_node_ip,
@@ -88,6 +89,11 @@ def _training_function(config: dict[str, Any]) -> None:
         callbacks.append(ModuleProfilerCallback(training_args.profile_modules))
 
     callbacks.append(ReporterCallback(model_args, data_args, finetuning_args, generating_args))  # add to last
+
+    try:
+        run_template_consistency_check(model_args, data_args, training_args, generating_args)
+    except Exception as err:
+        logger.warning_rank0(f"Template consistency check failed and training will continue. Error: {err}")
 
     if finetuning_args.stage in ["pt", "sft"] and finetuning_args.use_hyper_parallel:
         if not is_hyper_parallel_available():

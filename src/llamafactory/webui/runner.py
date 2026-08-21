@@ -167,6 +167,7 @@ class Runner:
             neat_packing=get("train.neat_packing"),
             train_on_prompt=get("train.train_on_prompt"),
             mask_history=get("train.mask_history"),
+            check_template_consistency=get("train.check_template_consistency"),
             resize_vocab=get("train.resize_vocab"),
             use_llama_pro=get("train.use_llama_pro"),
             enable_thinking=get("train.enable_thinking"),
